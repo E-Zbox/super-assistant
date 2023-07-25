@@ -1,38 +1,42 @@
 {
-  "name": "super-assistant-backend",
-  "version": "1.0.0",
-  "description": "A custom form builder that let's users create unique and dynamic forms to generate leads, get information from prospects, customers and more using a shareable link",
-  "main": "./dist/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/E-Zbox/super-assistant.git"
-  },
-  "keywords": [
-    "super-assistant",
-    "form-builder",
-    "form",
-    "form-pages",
-    "questionnaire"
-  ],
-  "author": "Ononogbu Ebenezer",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/E-Zbox/super-assistant/issues"
-  },
-  "homepage": "https://github.com/E-Zbox/super-assistant#readme",
-  "devDependencies": {
-    "nodemon": "^3.0.1"
-  },
-  "dependencies": {
-    "@graphql-tools/schema": "^10.0.0",
-    "@types/express": "^4.17.17",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "express-graphql": "^0.12.0",
-    "graphql": "^16.7.1",
-    "mongoose": "^7.4.1"
-  }
+    "name": "super-assistant-backend",
+    "version": "1.0.0",
+    "description": "A custom form builder that let's users create unique and dynamic forms to generate leads, get information from prospects, customers and more using a shareable link",
+    "main": "./dist/index.js",
+    "scripts": {
+        "build": "tsc",
+        "dev": "nodemon --trace-warnings",
+        "prod": "npm run build && npm run start",
+        "start": "nodemon ./dist/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/E-Zbox/super-assistant.git"
+    },
+    "keywords": [
+        "super-assistant",
+        "form-builder",
+        "form",
+        "form-pages",
+        "questionnaire"
+    ],
+    "author": "Ononogbu Ebenezer",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/E-Zbox/super-assistant/issues"
+    },
+    "homepage": "https://github.com/E-Zbox/super-assistant#readme",
+    "devDependencies": {
+        "nodemon": "^3.0.1"
+    },
+    "dependencies": {
+        "@graphql-tools/schema": "^10.0.0",
+        "@types/express": "^4.17.17",
+        "dotenv": "^16.3.1",
+        "express": "^4.18.2",
+        "express-graphql": "^0.12.0",
+        "graphql": "^16.7.1",
+        "mongoose": "^7.4.1"
+    }
 }
