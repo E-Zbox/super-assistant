@@ -1,0 +1,32 @@
+#import "../Page.gql"
+
+input FormInput {
+    name: String!
+    description: String
+    header_image: String
+    pages: [Page!]!
+}
+
+type Form {
+    _id: ID!
+    name: String!
+    description: String
+    header_image: String
+    pages: [Page!]!
+}
+
+type GetFormResponse {
+    data: Form
+    error: String!
+    success: Boolean!
+}
+
+type Mutation {
+    createForm(input: FormInput): GetFormResponse!
+    editForm(input: FormInput): GetFormResponse!
+}
+
+type Query {
+    getForm(id: ID!): GetFormResponse!
+    getForms(id: ID!): [GetFormResponse!]!
+}

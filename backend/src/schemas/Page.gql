@@ -1,0 +1,83 @@
+input PageInput {
+    form: ID!
+    number: Int!
+    categorize_questions: [QCategorize!]!
+    cloze_questions: [QCloze!]!
+}
+
+"""
+[{
+    _id: 903m,
+    title: Country
+},
+{
+    _id: 424a,
+    title: City
+}]
+"""
+type Category {
+    _id: ID!
+    title: String!
+    qcategorize: ID!
+}
+
+type GetPageResponse {
+    data: Page
+    error: String!
+    success: Boolean!
+}
+
+"""
+[{
+    _id, title: Japan, category: ID(Country)
+},
+{
+    _id, title: Madrid, category: ID(City)
+},
+{
+    _id, title: USA, category: ID(Country)
+}]
+"""
+type OCategorize {
+    title: String
+    category: ID!
+}
+
+type Option {
+    title: String
+    value: String!
+    qcloze: ID!
+}
+
+type Page {
+    _id: ID!
+    form: ID!
+    number: Int!
+    categorize_questions: [QCategorize!]!
+    cloze_questions: [QCloze!]!
+}
+
+type QCategorize {
+    num: Int!
+    title: String!
+    categories: [Category!]!
+    categorize_options: [OCategorize!]!
+}
+
+type QCloze {
+    num: Int!
+    title: [String!]!
+    hasAnswer: Boolean
+    options: [Option!]!
+    answer_options: [Option!]!
+}
+
+type Mutation {
+    createPage(input: PageInput): GetPageResponse!
+    editPage(input: PageInput): GetPageResponse!
+}
+
+type Query {
+    getPage(input: ID!): GetPageResponse!
+    getPages(input: ID!): [GetPageResponse!]!
+}
